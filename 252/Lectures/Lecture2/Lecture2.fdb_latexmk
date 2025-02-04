@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1737748852 "Lecture2.tex" "Lecture2.pdf" "Lecture2" 1737748853
+["pdflatex"] 1738648488 "Lecture2.tex" "Lecture2.pdf" "Lecture2" 1738648490
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -215,9 +215,9 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1674346817 2826450 c003741cb88a9371c145cb435e64df23 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "Lecture2.aux" 1737748853 902 8e98160ef28253076a32862b7b2d579f "pdflatex"
-  "Lecture2.out" 1737748853 202 b4eebf004ba783eb02f02a4edb0deb9b "pdflatex"
-  "Lecture2.tex" 1737748850 6623 b89ef16beffec0692612c722030f9fc0 ""
+  "Lecture2.aux" 1738648490 902 8e98160ef28253076a32862b7b2d579f "pdflatex"
+  "Lecture2.out" 1738648490 202 b4eebf004ba783eb02f02a4edb0deb9b "pdflatex"
+  "Lecture2.tex" 1738648486 6960 dd625844b5886a1524fcaa9c9f707a3a ""
   (generated)
   "Lecture2.aux"
   "Lecture2.log"

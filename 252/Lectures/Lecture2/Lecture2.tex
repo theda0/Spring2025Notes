@@ -75,7 +75,7 @@ for $I$ a maximal ideal.
 	 Let $A = FG$, then $\text{dim}_F A = |G|$, so $V = FG/I$ so $\text{dim}_F V \leq |G|$.
  \end{proof}
  
- Now suppose that $G = C_{p^n}$ a cyclic field group and $\text{dim} F = p$.
+ Now suppose that $G = C_{p^n}$ a cyclic field group and $\text{char} F = p$.
  Then any irreducible representation of $G$ over $F$ is trivial. 
  Indeed, if $C_{p^n} = \langle g \rangle$, then $FG = F[g]/(g^{p^n}-1)$.
  For $x = g-1$ this is $F[x]/(x^{p^n})$ is a local ring with unique maixmal ideal $(x)$, so the only representation is $F[x]/(x) = F$.
@@ -94,27 +94,33 @@ for $I$ a maximal ideal.
  This is proved in the textbook in the finite case, it holds in general by an application of Zorn's Lemma.
  We give a sketch of the proof.\\
 
- $(1) \Longrightarrow (2):$ If $\{S_j\}_{j \in J}$ all simply submodules, then by Zorn's there exists some $I \subset J$ such that 
+ $(1) \Longrightarrow (2):$ If $\{S_j\}_{j \in J}$ is all simple submodules, then by Zorn's there exists some $I \subset J$ such that 
  \[ \sum_{i \in I} S_i = \bigoplus_{i \in I} S_i\]
  we can check that $V = \bigoplus_{i \in I} S_i$.\\
 
- $(2) \Longrightarrow (3):$ For a submodule $W$, choose a maximal subset $K \subset I$ such that $W \ic (\bigoplus_{i \in I} S_i) = \{0\}$ then $\bigoplus_{j \in I/K} S_j = W'$ which we check later.\\
+ $(2) \Longrightarrow (3):$ For a submodule $W$, choose a maximal subset $K \subset I$ such that $W \ic (\bigoplus_{i \in I} S_i) = \{0\}$ then $\bigoplus_{j \in I/K} S_j = W'$ which is readily checked using properties of simple submodules.\\
 
- $(3) \Longrightarrow (1)$. We first give a definition.
+ $(3) \Longrightarrow (1)$: See the textbook.\\
+
+ We first give a definition.
 \begin{definition}
 	The \textit{socle} of $V$ is the sum of all simple submodules of $V$, we will also denote this as \textbf{Soc}($V$).
 \end{definition}
 Assuming (3) holds, we first claim that Soc($V$) is nonzero.
-For $v \in V, v\ neq 0$, there exists a maximal $M \subset Av$.
+For $v \in V, v \neq 0$, there exists a maximal $M \subset Av$.
 Then $V = Av \oplus N$ then $M \oplus N \subset V$ is maximal, hence $S = W/M \oplus N$ is simple.
 Therefore $V = M \oplus N \oplus S$ by property 3, and another use gives us that $\text{Soc}(V) = V$ as we wanted to show.
 
 \end{proof}
 
 \begin{proposition}
-	A quotient and submodule of a semisimple module is semi-simple.\\
-	If $D$ is a division ring then any $D$-module is semisimple.
-\end{proposition}
+	A quotient and submodule of a semisimple module is semi-simple.\end{proposition}
+
+\begin{proof}
+	The first is readily verified using the equivalent properties proven above. 
+\end{proof}
+
+As an example, if $D$ is a division ring then any $D$-module is semisimple over itself.
 
 Go to a representation of $G$, a semisimple $FG$-module is called a \textit{completely reducible} representation of $G$.
 We shall now prove the firsrt main theorem of representation theorem
@@ -132,7 +138,7 @@ We shall now prove the firsrt main theorem of representation theorem
 	\[ \overline{\pi} = \frac{1}{{G}} \sum_{g \in G} g \pi g^{-1}\]
 which is well defined as $|G|$ is assumed invertible in $F$. \\
 
-We first show that $\overline{\pi} \in \text{End}_FG(V)$. Indeed, for any $h \in G$ $h \overline{\pi} h^{-1} = \overline{\pi}$ by a simple computation.
+We first show that $\overline{\pi} \in \text{End}_{FG}(V)$. Indeed, for any $h \in G$ $h \overline{\pi} h^{-1} = \overline{\pi}$ by a simple computation.
 Also note that $\overline{\pi}(V)$ is also a projection onto $W$ since $W$ is invariant under $FG$ and $\pi$ is the identity rericteded to $W$.
 We shall show that $W'' = \text{ker}(\overline{\pi})$ is our desired subspace. 
 Indeed, if $\overline{\pi}w = 0$ then $\overline{\pi}(gw) = g \overline{\pi} w = 0$.
@@ -146,12 +152,14 @@ Indeed, if $\overline{\pi}w = 0$ then $\overline{\pi}(gw) = g \overline{\pi} w =
 	Hence $\text{Soc}(V) = V$ if $\text{char}(F) \neq 3$ and $W'$ if $\text{char}(F) = 3$ .
 \end{example}
 
+We introduce the next result but don't prove it, you may recognize it as a general form of a theorem often encountered in group theory.
+
 \begin{theorem}[Jordan Holder]
 	Let $V$ be an $A$-module. $V$ is of finite length if there exists a finite filtration of submodules 
 	\[0 = V_1 \subset V_1 \subset \dots \subset V_e = V\]
 	of submodules such that $V_i/V_{i-1}$ is simple. 
 	If $V$ is of finite length, then any other such filtration has the same length and simple quotients, though not necessarily in the same order.
-	These $S_i$'s are called \textit{simple consituents} of $V$.
+	These $S_i$'s are called \textit{simple constituents} of $V$.
 \end{theorem}
 
 \end{document}
