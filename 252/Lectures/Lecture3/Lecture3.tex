@@ -1,0 +1,130 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings,calc}
+\usepackage{tikz-cd}
+\usetikzlibrary{matrix}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{colonequals}
+\usepackage{todonotes}
+\usepackage{theoremref}
+
+\font\maljapanese=dmjhira at 2.5ex
+\newcommand{\yo}{\textrm{\!\maljapanese\char"48}}
+
+\newtheorem{theorem}{Theorem}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition2}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{examples}[theorem]{Examples}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{plain}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mk}[1]{\mathfrak{#1}}
+\newcommand{\un}{\cup}
+\newcommand{\ic}{\cap}
+\pagestyle{fancy}
+\newcommand\size{1}% distance of nodes from center
+
+\usepackage{microtype}
+
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}%
+
+\begin{document}
+
+\textbf{Today:} We prove Schur's Lemma as well as the Artin-Wedderburn Theorem.
+
+\begin{theorem}[Schur's Lemma]
+	Let $A$ be a ring with unit, and $S_1, S_2$ simple $A-$modules, then $\text{Hom}_A(S_1, S_2) = 0$ when $S_1$ and $S_2$ are not isomorphic, and otherwise $\text{End}_A(S_1)$ is a division ring.
+\end{theorem}
+\begin{proof}
+	This one is intuitive, I doubt you'll forget bu its also in the textbook.
+\end{proof}
+
+\begin{corollary}
+	If $A$ is a finite dimensional $k$-algebra for $k$ an algebraically closed field and $S$ a simple $A$-module then $\text{End}_k(S) = k$.
+\end{corollary}
+\begin{proof}
+	iAlso in textbook, use the fact that every linear operator $V$ of vector spaces when $k$ is algebraically closed.
+	If this eigenvalue is $\lambda$, the fact that $\text{End}_k(S)$ is a division ring from the first theorem tells us that $V - \lambda I = 0$, and hence all such endomorphisms are scaling by $k$.
+\end{proof}
+
+\begin{corollary}
+	If $G$ is a finite abelian group, $k$ algebraically closed, then any irreducible representation of $G$ over $k$ is one-dimensional.
+\end{corollary}
+
+One question you may have asked in light of Maschke's Theorem is for what rings is it true that all modules over it are semisimple?
+In light of this we consider the following definition.
+
+\begin{definition}
+	A ring $A$ is \textit{semisimple} if every $A$-moduel is semisimple.
+\end{definition}
+
+In particular $A_A$ ($A$ viewed as a left module over itself, in textbook $A$ goes on the left) is also semi-simple.
+We claim the converse is also true.
+Indeed, if $A_A$ is semisimple then so is ever free module, and hence every module being the quotient of a free module.
+For example, from the previous lecture this implies that a division ring is semisimple.
+
+\begin{definition}
+	$M_n(D)$ is the ring of $n \times n$ matrices with coefficients in $D$.
+\end{definition}
+
+In the exercises of textbook, we show that there exists only one simple module up to isomorphism, which may be thought of as columns of the matrices.
+
+\begin{theorem}[Artin-Wedderburn]
+	Any semi-simple ring $A$ is isomorphic to the direct sum $M_{n_1}(D_1) \oplus \dots \oplus M_{n_m}(D_m)$ for some division rings $D_1, \dots, D_{m}$.
+	If we also assume that $A$ is a finite dimensional $k$-algebra for $k$ algebraically closed, we may additionalyl assume that $D_1 = \dots = D_m = k$.
+\end{theorem}
+
+First note that this implies that $A_A$ decomposes into simple submodules, these by definition are minimal ideals, of which there must be finitely many if $A$ has unity, from the same argument that affine schemes are quasi-compact.
+To prove Artin-Wedderburn we first state a lemma.
+
+\begin{lemma}
+	If $A$ is a ring with unity then $\text{End}_{A}(A_A) \cong \text{A}^{\text{op}}$
+\end{lemma}
+
+\begin{proof}
+	There are clear maps sending an endomorphism $\phi$ to $\phi(1)$ and to an element $a \in A$ the unique endomorphism where $\phi(1) = a$, it is not hard to check these define our desired isomorphisms.
+\end{proof}
+
+We now prove Artin-Wedderburn.
+If $A$ is semi-simple, let 
+\[ \text{End}_A(A_A) = \text{End}_A(\bigoplus_{i=1}^n S_i^{n_i})\]
+for $S_i$ simple, then by Schur's Lemma, we may ignore Homs from nonisomorphic simple modules so the above is isomorphic to 
+\[\bigoplus_{i=1}^n \text{End}_A(S_i^{n_i})\]
+and since $A$-modules is abelian, it is true that  $\text{End}_A(S^n) \cong M_n(\text{End}_A(S))$, a useful exercise is to construct this isomorphism.\\
+Now if $D_i = \text{End}_A(S_i)$ we have from our work that 
+\[A^{\text{op}} \cong \bigoplus_{i =1}^n M_n(D
+_i)\]
+now the transposition operation give us a natural isomorphism $M_n(D_i)^{\text{op}} \cong M_n(D_i^{\text{op}})$
+hence our theorem is proved by letting $D_i = \text{End}(S_i)^{\text{op}}$, the comment for $k$ algebraically closed follows from the corollary at the beginning of lecture.
+\end{document}
