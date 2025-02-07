@@ -1,0 +1,160 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings,calc}
+\usepackage{tikz-cd}
+\usetikzlibrary{matrix}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{colonequals}
+\usepackage{todonotes}
+\usepackage{theoremref}
+
+\font\maljapanese=dmjhira at 2.5ex
+\newcommand{\yo}{\textrm{\!\maljapanese\char"48}}
+
+\newtheorem{theorem}{Theorem}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition2}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{examples}[theorem]{Examples}
+
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{plain}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mk}[1]{\mathfrak{#1}}
+\newcommand{\un}{\cup}
+\newcommand{\ic}{\cap}
+\pagestyle{fancy}
+\newcommand\size{1}% distance of nodes from center
+
+\usepackage{microtype}
+
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}%
+
+\begin{document}
+\section{Chapter 4}
+
+For two groups $G_1, G_2$ consider their direct product $G = G_1 \times G_2$.
+For two representations $\rho_1, \rho_2$ of $G_1$ and $G_2$, we can form their tensor representation
+\[\rho_1 \otimes \rho_2(g_1, g_2) = \rho_1(g_1) \otimes \rho_2(g_2)\]
+\[\rho_1 \otimes \rho_2: G_1 \times G_2 \to GL(V_1 \otimes V_2)\]
+over the $\C$, we have that 
+\[\chi_{V_1 \otimes V_2}(g_1, g_2) = \chi_{V_1}(g_1) \chi_{V_2}(g_2)\]
+
+\begin{lemma}
+	If $k = \C$, $V_1$ and $V_2$ are irreducible representations of $G_1$ and $G_2$, respectively, then $V_1 \otimes V_2$ is an irreducible representation of $G_1 \times G_2$.
+\end{lemma}
+
+\begin{proof}
+	Easy way, we can check that its inner product of character with itself is 1, and indeed 
+	\[\langle\chi_{V_1 \otimes V_2}(g_1, g_2) \rangle = \langle \chi_{V_1}(g_1), \chi_{V_1}(g_1)\rangle  \langle \chi_{V_2}(g_2), \chi_{V_2}(g_2)\rangle  = 1 \]
+\end{proof}
+
+\begin{example}
+	The above Lemma does not hold over $\R$, take $G_1 = G_2 = C_3$.
+	\[\rho: C_2 \to GL_2(\R)\]sending 
+	\[ \rho(g) = \begin{bmatrix} \cos( \frac{2\pi}{3}) & -\sin( \frac{2\pi}{3})\\ \sin( \frac{2\pi}{3}) & \cos( \frac{2\pi}{3})\end{bmatrix}\]
+	is irreducible as it has no eigenvalues, but note that 
+	\[\rho \otimes \rho\]
+has dimension $4$, but we claim that every irreducible representation of a finite abelian group over $\R$ has dimension 1 or 2. 
+Indeed, $\R G$ is a commutative algebra, from Artin-Wedderburn we have a decomposition 
+\[\R G = \bigoplus_{i=1}^n M_{n_1}(D_i) = \R^s \oplus \C^{r-s}\]
+\end{example}
+ \begin{corollary}
+ 	For $k = \C$, if $G_1$ has irred reps $V_1, \dots, V_r$ and $G_2$ has irred reps $W_1, \dots, W_s$ then every irred rep of $G_1 \times G_2$ is isomorphic to $V_i \otimes W_j$.
+	(Count conjugacy classes)
+ \end{corollary}
+
+Let $G$ is abelian, and $G = C_{l_1} \times \dots \times C_{l_k}$ of cyclic groups of $C_{l_i}$.
+The 1 dimensional repr of $C_{i}$ form a group of $G^{\times}$.
+The inverse of $\chi$ is the dual representation.
+in which case 
+\[G^* - C_{l_1}^* \times \dots \times C_{l_k}^* \cong  C_{l_1} \times \dots \times C_{l_k}\]
+but this decomposition is not unique.\\
+
+\subsection{Character table of $C_2 \times C_2$}
+Let $\langle g \rangle = C_2, \langle h \rangle = C_2$,
+we have 
+\begin{center}
+\begin{tabular}{ c|c|c|c|c| } 
+& 1 & $(g,1)$ & $(1,h)$ &  $(g,h)$ \\
+ \hline
+ $\chi_1$ & 1 & 1 & 1 &1\\
+$\chi_2$ & -1 & 1 & -1 &1\\
+
+$\chi_3$ & 1 & 1 & -1 &-1\\
+
+$\chi_4$ & 1 & -1 & -1 &1\\
+
+\end{tabular}
+\end{center}
+
+\subsection{Duality}
+ We now talk about duality (over $\C$), if $V$ is an irreducible repr of $G$, our motivating question is how to determine of $V \cong V^*$ just by looking at $\chi_V$.
+ Well since 
+ \[\chi_{V^*}(g) = \overline{\chi_{V}(g) }\]
+they are isomorphic iff all character values are real.\\
+
+Over an arbitrary ring $R$ if $V$ is an $RG$-module then $V^* = \text{Hom}_R(V,R)$ is again an $RG$-module.
+So it is really a construction of a bilinear pairing
+\[f: V \to V^*\]
+\[\beta: V \otimes V \to R\]
+
+\[\text{Hom}_R(V, V^*)^G = \text{Hom}_R(V \otimes V, R)^G\]
+sending $\beta(gv,gw) \to \beta(v,w) \forall g \in G$.
+If $V$ is a free $R$-module of finite rank $n$, then $f$ is an isomorphism if $\beta$ is nondegnerate.\\
+
+We now show that the regular representation $RG$ is self-dual.
+This implies a form $\beta: RG \otimes RG \to R$.
+$\beta(x,y) = \alpha(xy)$ for $\alpha: RG \to R$ sending each $g \to 1$ (take the sum of $R$ coefficients).
+However, to make it invariant, we need 
+\[\beta(g,h) = \alpha (g^{-1} h)\]
+same way, any permutation representation is self-dual.\\
+
+We work over $\C$ again, suppose $V \cong V^*$ and $V$ is irreducible.
+Then there exists a bilinear invariant form
+\[\beta: V \otimes V \to \C\]
+unique up to rescaling (already nondegenerate by simplicity of $V$)
+\[V \otimes V = S^2 V \oplus \wedge^2 V\]
+from the representation $\rho: V \otimes V \to V \otimes V$ sending $v \otimes w \to w \otimes v$ so it is either symmetric or skew symetric.\\
+
+How to compute $\chi_{S^2V}, \chi_{\wedge^2 V}$
+For $g$, $\rho(g)$ is diagonalizable with eigenvalues $\lambda_i$ in a suitable basis.
+Basis on $S^2V$ is $(v_i, v_j), v \leq j = v_1 \otimes v_j + v_j \otimes v_i$ and basis on $\wedge^2 V$ is $v_i\wedge v_j - v_i\wedge v_j $.
+so trace of symmetric representation is TODO
+so at the end we have 
+\[\chi_{S^2 V}(g) = \frac{\chi^2_V(g) + \chi_V(g^2)}{2}\] and 
+\[\chi_{\wedge^2 V}(g) = \frac{\chi^2_V(g) - \chi_V(g^2)}{2}\] 
+The Schur index $V$ is an irred rep
+\[S_{V} = \frac{1}{|G|} \sum_{g\in G} \chi_V(g^2) = \langle\chi_{S^2V} - \chi_{\wedge^2 V}, \chi_1 \rangle\]
+which takes on $1$ if $V$ is symmetric, -1 if $V$ is skew symmetric, and 0 if they are not dual.
+Useful for real representation, we start induction and restriction next time.
+\end{document}
